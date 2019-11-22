@@ -9,7 +9,7 @@ STATES = (
 
 class QuestionTrack(models.Model):
     """
-    Track question-model
+    Single track that can be as question in a game.
     """
 
     videoId = models.CharField(
@@ -44,3 +44,51 @@ class QuestionTrack(models.Model):
     artist = models.CharField(max_length=255)
     track = models.CharField(max_length=255)
     feat = models.CharField(max_length=255, blank=True, null=True)
+
+
+class Game(models.Model):
+    """
+    Contains all information that is needed for single run of the game.
+    """
+
+    # -- Statistics
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Question(models.Model):
+    """
+    Question track that has been selected to the game.
+    """
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    track = models.ForeignKey(QuestionTrack, on_delete=models.PROTECT)
+
+    index = models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        unique_together = (
+            # Game cannot have duplicate tracks
+            ("game", "track"),
+
+            # Track indexes must be unique for the game
+            ("game", "index")
+        )
+
+
+class Player(models.Model):
+    """
+    Player in the game.
+    """
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    display_name = models.CharField(max_length=255)
+
+
+class Answer(models.Model):
+    """
+    The player has an answer for the question.
+    """
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    # How many points the game master has given for the answer?
+    points = models.IntegerField(null=False, blank=False)
