@@ -45,6 +45,11 @@ class QuestionTrack(models.Model):
     track = models.CharField(max_length=255)
     feat = models.CharField(max_length=255, blank=True, null=True)
 
+    def __str__(obj):
+        if obj.feat:
+            return "%s - %s (%s)" % (obj.artist, obj.track, obj.feat)
+        return "%s - %s" % (obj.artist, obj.track)
+
 
 class Game(models.Model):
     """
@@ -64,6 +69,8 @@ class Question(models.Model):
     track = models.ForeignKey(QuestionTrack, on_delete=models.PROTECT)
 
     index = models.IntegerField(blank=False, null=False)
+
+    answered = models.BooleanField(blank=False, null=False, default=False)
 
     class Meta:
         unique_together = (

@@ -19,6 +19,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('', views.newgame, name='newgame'),
+    path('game/<int:game_id>', views.game, name='game'),
     path('add', views.add, name='add'),
     path('admin/', admin.site.urls),
 ]
