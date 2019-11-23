@@ -22,7 +22,7 @@ def add(request):
         form = Form(initial={
             "videoId": "yQkdMh4GW4M",
             "start": 103,
-            "stop": 103 + 15,
+            "end": 103 + 15,
             "artist": "costee",
             "track": "Satuta mua kunnolla"
         })

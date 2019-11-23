@@ -30,7 +30,7 @@
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      var player;
+      var player, done;
       function onYouTubeIframeAPIReady() {
         document.getElementById("preview").onclick = function() {
           var videoid = document.querySelector("input[name=videoId]").value;
@@ -38,7 +38,7 @@
           var end = document.querySelector("input[name=end]").value;
 
           console.log("PREVIEW", videoid, start, end);
-          var done = false;
+          done = false;
 
           player = new YT.Player('player', {
             height: '500',
@@ -49,18 +49,25 @@
             },
             events: {
               'onReady': function(event) {
-                event.target.playVideo();
+                console.log("Ready");
+
+                player.seekTo(start, true);
+                player.playVideo();
               },
-              'onStateChange': function(event) {
-                if (event.data == YT.PlayerState.PLAYING && !done) {
-                  var timeout = (end - start) * 1000;
-                  console.log("SET TIMEOUT", timeout)
-                  setTimeout(player.pauseVideo, timeout);
-                  done = true;
-                }
-              }
+              'onStateChange': onStateChange
             }
           });
+
+
+          function onStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+              var timeout = (end - start) * 1000;
+              setTimeout(function() {
+                player.pauseVideo();
+              }, timeout);
+              done = true;
+            }
+          }
         }
       }
     </script>

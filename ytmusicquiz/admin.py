@@ -4,7 +4,17 @@ from .models import QuestionTrack, Question, Game, Player, Answer
 
 @admin.register(QuestionTrack)
 class QuestionTrackAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('display_name', "length")
+
+    def length(self, obj):
+        if obj.start and obj.end:
+            return obj.end - obj.start
+        return None
+
+    def display_name(self, obj):
+        if obj.feat:
+            return "%s - %s (%s)" % (obj.artist, obj.track, obj.feat)
+        return "%s - %s" % (obj.artist, obj.track)
 
 
 class PlayerInline(admin.TabularInline):
