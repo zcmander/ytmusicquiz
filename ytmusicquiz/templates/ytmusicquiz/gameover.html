@@ -8,18 +8,11 @@
   <body>
     <div class="container">
 
-      <h1>In game</h1>
+      <h1>Game over!</h1>
 
-        <h2>{{question_progress}}/{{question_count}}</h2>
 
-        {{question.track.artist}} - {{question.track.track}}
 
-        <form method="POST">
-            {% csrf_token %}
-            {% bootstrap_formset form layout='horizontal' %}
-
-            <button type="submit" class="btn btn-primary">Next</button>
-        </form>
+      <a href="{% url 'newgame' %}">Start a new game</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

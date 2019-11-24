@@ -96,6 +96,7 @@ class Answer(models.Model):
     """
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
 
     # How many points the game master has given for the answer?
     points = models.IntegerField(null=False, blank=False)
