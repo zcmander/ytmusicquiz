@@ -1,3 +1,6 @@
+from asgiref.sync import async_to_sync
+
+from channels.layers import get_channel_layer
 from django.shortcuts import render, redirect
 from django import forms
 
@@ -86,6 +89,20 @@ def game(request, game_id):
             return redirect("game", game_id=game.id)
     else:
         form = AnswerFormset(initial=initial)
+
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        'game', {
+            "type": 'game.status',
+            "question": {
+                "progress": question.index,
+                "count": question_count,
+                "youtube": {
+                    "id": question.track.videoId,
+                }
+            },
+        }
+    )
 
     return render(request, "ytmusicquiz/game.html", {
         "game": game,
