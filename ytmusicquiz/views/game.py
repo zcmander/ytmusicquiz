@@ -99,6 +99,8 @@ def game(request, game_id):
                 "count": question_count,
                 "youtube": {
                     "id": question.track.videoId,
+                    "start": question.track.start,
+                    "end": question.track.end,
                 }
             },
         }
