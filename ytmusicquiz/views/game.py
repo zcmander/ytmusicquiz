@@ -68,8 +68,6 @@ def game(request, game_id):
         form = AnswerFormset(request.POST)
 
         if form.is_valid():
-            print(form.cleaned_data)
-
             for player_form in form.cleaned_data:
                 player = Player.objects.filter(
                     game=game,
@@ -94,15 +92,7 @@ def game(request, game_id):
     async_to_sync(channel_layer.group_send)(
         'game', {
             "type": 'game.status',
-            "question": {
-                "progress": question.index,
-                "count": question_count,
-                "youtube": {
-                    "id": question.track.videoId,
-                    "start": question.track.start,
-                    "end": question.track.end,
-                }
-            },
+            "game_id": game.id
         }
     )
 
