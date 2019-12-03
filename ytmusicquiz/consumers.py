@@ -102,3 +102,19 @@ class GameConsumer(AsyncWebsocketConsumer):
         }
 
         await self.send(json.dumps(return_event))
+
+    async def game_answer(self, event):
+        question = Question.objects.filter(
+            game_id=event["game_id"],
+            id=event["question_id"]
+        ).first()
+
+        await self.send(json.dumps({
+            "type": "game.answer",
+            "answer": {
+                "artist": question.track.artist,
+                "track": question.track.track,
+                "feat": question.track.feat,
+            },
+            "correct_answered_players": event["correct_answered_players"]
+        }))

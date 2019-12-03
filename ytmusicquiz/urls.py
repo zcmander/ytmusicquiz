@@ -21,6 +21,8 @@ from . import views
 urlpatterns = [
     path('', views.newgame, name='newgame'),
     path('game/<int:game_id>', views.game, name='game'),
+    path('game/<int:game_id>/answered', views.game_answered,
+         name='game_answered'),
     path('game/<int:game_id>/finnish', views.gameover, name='gameover'),
 
     path('dashboard/<int:game_id>', views.dashboard, name='dashboard'),
