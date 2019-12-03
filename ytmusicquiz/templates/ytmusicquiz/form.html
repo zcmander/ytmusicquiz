@@ -39,6 +39,11 @@
         console.log("PREVIEW", videoid, start, end);
         done = false;
 
+        if (player)
+        {
+          player.destroy();
+        }
+
         player = new YT.Player('player', {
           height: '500',
           width: '100%',
@@ -50,8 +55,8 @@
             'onReady': function(event) {
               console.log("Ready");
 
-              player.seekTo(start, true);
-              player.playVideo();
+              // player.seekTo(start, true);
+              event.target.playVideo();
             },
             'onStateChange': onStateChange
           }
@@ -61,13 +66,41 @@
         function onStateChange(event) {
           if (event.data == YT.PlayerState.PLAYING && !done) {
             var timeout = (end - start) * 1000;
-            setTimeout(function() {
-              player.pauseVideo();
-            }, timeout);
-            done = true;
+
+            if (timeout > 0)
+            {
+              setTimeout(function() {
+                player.pauseVideo();
+              }, timeout);
+              done = true;
+            }
           }
         }
       }
     }
+
+    function keyDownListener(e)
+    {
+      if (!player)
+      {
+        return;
+      }
+
+      console.log(e.code);
+      if (e.key == 'i')
+      {
+        document.querySelector("input[name=start]").value = Math.floor(
+          player.getCurrentTime()
+        )
+      }
+      else if (e.key == 'o')
+      {
+        document.querySelector("input[name=end]").value = Math.floor(
+          player.getCurrentTime()
+        )
+      }
+    }
+
+    document.addEventListener('keydown', keyDownListener)
   </script>
 {% endblock %}
