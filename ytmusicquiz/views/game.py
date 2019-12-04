@@ -96,7 +96,7 @@ def game(request, game_id):
                     })
 
             async_to_sync(channel_layer.group_send)(
-                'game', {
+                'game-{}'.format(game.id), {
                     "type": 'game.answer',
                     "game_id": game.id,
                     "question_id": question.id,
@@ -121,7 +121,7 @@ def game(request, game_id):
         form = AnswerFormset(initial=initial)
 
     async_to_sync(channel_layer.group_send)(
-        'game', {
+        'game-{}'.format(game.id), {
             "type": 'game.status',
             "game_id": game.id
         }

@@ -16,7 +16,7 @@ def gameover(request, game_id):
     game = Game.objects.get(pk=game_id)
 
     async_to_sync(channel_layer.group_send)(
-        'game', {
+        'game-{}'.format(game.id), {
             "type": 'game.over',
             "game_id": game.id,
         }
