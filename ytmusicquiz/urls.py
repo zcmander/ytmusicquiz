@@ -19,18 +19,27 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
+    # Intro
     path('', views.newgame, name='newgame'),
-    path('game/<int:game_id>', views.game, name='game'),
-    path('game/<int:game_id>/answered', views.game_answered,
-         name='game_answered'),
-    path('game/<int:game_id>/finnish', views.gameover, name='gameover'),
 
-
+    # TV (DEPRECATED, use ytmusicquiz-dashboard project)
     path('dashboard/<int:game_id>', views.dashboard, name='dashboard'),
 
+    # Game master
+    path('game/<int:game_id>', views.game_master.game, name='game'),
+    path('game/<int:game_id>/answered', views.game_master.game_answered,
+         name='game_answered'),
+    path('game/<int:game_id>/finnish', views.game_master.gameover,
+         name='gameover'),
+
+
     # Management
-    path('process_draft', views.process_draft, name='process_draft'),
-    path('add', views.add, name='add'),
-    path('import_playlist', views.import_playlist, name='import_playlist'),
+    path('process_draft', views.management.process_draft,
+         name='process_draft'),
+    path('add', views.management.add, name='add'),
+    path('import_playlist', views.management.import_playlist,
+         name='import_playlist'),
+
     path('admin/', admin.site.urls),
 ]

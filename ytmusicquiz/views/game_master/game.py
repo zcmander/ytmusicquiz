@@ -30,6 +30,9 @@ class AnswerForm(forms.Form):
 def game(request, game_id):
     """
     Main game page, where answers are given.
+
+    In this stage, the dashboard will play the question track and
+    game master can input answers during or after the track has been played.
     """
 
     game = Game.objects.get(pk=game_id)
@@ -133,11 +136,4 @@ def game(request, game_id):
         "question_progress": question.index + 1,
         "question_count": question_count,
         "form": form,
-    })
-
-
-def game_answered(request, game_id):
-    game = Game.objects.get(pk=game_id)
-    return render(request, "ytmusicquiz/game_answered.html", {
-        "game": game,
     })

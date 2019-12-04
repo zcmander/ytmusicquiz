@@ -15,6 +15,7 @@ def gameover(request, game_id):
 
     game = Game.objects.get(pk=game_id)
 
+    # Signal dashboard to move into game over stage.
     async_to_sync(channel_layer.group_send)(
         'game-{}'.format(game.id), {
             "type": 'game.over',

@@ -1,6 +1,12 @@
-from .add import add, process_draft
 from .newgame import newgame
-from .game import game, game_answered
-from .gameover import gameover
 from .dashboard import dashboard
-from .import_playlist import import_playlist
+
+from . import game_master
+from . import management
+
+__all__ = [
+    newgame,
+    dashboard,
+    game_master,
+    management
+]
