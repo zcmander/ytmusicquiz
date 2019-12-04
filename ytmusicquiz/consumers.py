@@ -100,7 +100,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             "history": self._get_history(game),
             "stats": self._get_statistics(game),
             "question": {
-                "progress": question.index,
+                "progress": question.index + 1,
                 "count": question_count,
                 "youtube": {
                     "id": question.track.videoId,

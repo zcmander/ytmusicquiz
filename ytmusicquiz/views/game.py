@@ -130,7 +130,7 @@ def game(request, game_id):
     return render(request, "ytmusicquiz/game.html", {
         "game": game,
         "question": question,
-        "question_progress": question.index,
+        "question_progress": question.index + 1,
         "question_count": question_count,
         "form": form,
     })
