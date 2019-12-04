@@ -4,13 +4,21 @@
 
 {% block content %}
   <div class="container">
-    <h1>Add new entry</h1>
-    <form method="POST" class="m-5">
+    <h1>{{ title }}</h1>
+    <form method="POST" class="my-5">
         {% csrf_token %}
         {% bootstrap_form form %}
 
-        <button type="button" class="btn btn-secondary" id="preview">Preview</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row my-5">
+          <div class="col-6">
+              <button type="submit" name="reject" class="btn btn-danger" disabled>Reject</button>
+          </div>
+          <div class="col-6 text-right">
+
+            <button type="button" class="btn btn-secondary" id="preview">Preview</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
     </form>
 
     <div class="preview border bg-light p-3">

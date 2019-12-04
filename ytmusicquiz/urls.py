@@ -25,9 +25,12 @@ urlpatterns = [
          name='game_answered'),
     path('game/<int:game_id>/finnish', views.gameover, name='gameover'),
 
+
     path('dashboard/<int:game_id>', views.dashboard, name='dashboard'),
 
     # Management
+    path('process_draft', views.process_draft, name='process_draft'),
     path('add', views.add, name='add'),
+    path('import_playlist', views.import_playlist, name='import_playlist'),
     path('admin/', admin.site.urls),
 ]

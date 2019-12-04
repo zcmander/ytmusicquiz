@@ -23,8 +23,39 @@ def add(request):
         form = Form(request.POST)
 
         if form.is_valid():
-
-            form.save()
+            obj = form.save()
+            obj.state = "DONE"
+            obj.save()
             return redirect('add')
 
-    return render(request, "ytmusicquiz/form.html", {"form": form})
+    return render(request, "ytmusicquiz/form.html", {
+        "title": "Add new entry",
+        "form": form
+    })
+
+
+def process_draft(request):
+    qt = QuestionTrack.objects.filter(state="DRAFT").first()
+
+    if not qt:
+        raise Exception("No question tracks in DRAFT state")
+
+    form = Form(instance=qt)
+
+    if request.method == 'POST':
+        form = Form(request.POST, instance=qt)
+
+        if form.is_valid():
+            obj = form.save()
+            obj.state = "DONE"
+            obj.save()
+            return redirect('process_draft')
+
+    left = QuestionTrack.objects.filter(state="DRAFT").count() - 1
+
+    title = "Process Question tracks in DRAFT-state ({} left)".format(left)
+
+    return render(request, "ytmusicquiz/form.html", {
+        "title": title,
+        "form": form
+    })
