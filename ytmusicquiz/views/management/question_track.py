@@ -34,8 +34,13 @@ def add(request):
     })
 
 
-def process_draft(request):
-    qt = QuestionTrack.objects.filter(state="DRAFT").first()
+def process_draft(request, video_id=None):
+    q = QuestionTrack.objects.filter(state="DRAFT")
+
+    if video_id:
+        q = q.filter(videoId=video_id)
+
+    qt = q.first()
 
     if not qt:
         raise Exception("No question tracks in DRAFT state")

@@ -35,7 +35,11 @@ urlpatterns = [
 
 
     # Management
+    path('list_unprocessed', views.management.list_unprocessed,
+         name='list_unprocessed'),
     path('process_draft', views.management.process_draft,
+         name='process_draft'),
+    path('process_draft/<video_id>', views.management.process_draft,
          name='process_draft'),
     path('add', views.management.add, name='add'),
     path('import_playlist', views.management.import_playlist,
