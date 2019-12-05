@@ -16,10 +16,13 @@ class GameConsumer(AsyncWebsocketConsumer):
 
         await self.send(json.dumps(return_event))
 
+        self.game_name = None
+
     async def disconnect(self, close_code):
-        await self.channel_layer.group_discard(
-            self.game_name,
-            self.channel_name)
+        if self.game_name:
+            await self.channel_layer.group_discard(
+                self.game_name,
+                self.channel_name)
 
     async def receive(self, text_data):
         print("REVEICE", text_data)
@@ -163,6 +166,12 @@ class GameConsumer(AsyncWebsocketConsumer):
 
         await self.send(json.dumps(return_event))
 
+    async def game_finish(self, event):
+        self.game_name = "game-{}".format(event["game_id"])
+        await self.send(json.dumps({
+            "type": "game.finish",
+        }))
+
     async def control_playpause(self, event):
         await self.send(json.dumps({
             "type": "control.playpause",
@@ -171,4 +180,10 @@ class GameConsumer(AsyncWebsocketConsumer):
     async def control_replay(self, event):
         await self.send(json.dumps({
             "type": "control.replay",
+        }))
+
+    async def control_connect(self, event):
+        self.game_name = "game-{}".format(event["game_id"])
+        await self.send(json.dumps({
+            "type": "control.connect",
         }))

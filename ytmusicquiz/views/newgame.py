@@ -37,6 +37,6 @@ def newgame(request):
                 game.player_set.create(display_name=player4)
 
             generate_questions(game)
-            return redirect("game", game_id=game.id)
+            return redirect("setup", game_id=game.id)
 
     return render(request, "ytmusicquiz/newgame.html", {"form": form})

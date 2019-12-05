@@ -26,6 +26,13 @@ def api_control(request, game_id):
             game_name,
             data['dashboard_id'])
 
+        async_to_sync(channel_layer.group_send)(
+            'game-{}'.format(game.id), {
+                "type": "control.{}".format(action),
+                "game_id": game.id,
+            }
+        )
+
     # Other control events
     else:
         async_to_sync(channel_layer.group_send)(

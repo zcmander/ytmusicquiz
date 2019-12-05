@@ -27,11 +27,14 @@ urlpatterns = [
     path('dashboard/<int:game_id>', views.dashboard, name='dashboard'),
 
     # Game master
+    path('game/<int:game_id>/setup', views.game_master.setup, name='setup'),
     path('game/<int:game_id>', views.game_master.game, name='game'),
     path('game/<int:game_id>/answered', views.game_master.game_answered,
          name='game_answered'),
-    path('game/<int:game_id>/finnish', views.game_master.gameover,
+    path('game/<int:game_id>/gameover', views.game_master.gameover,
          name='gameover'),
+    path('game/<int:game_id>/finish', views.game_master.finish,
+         name='finish'),
 
     path('api/game/<int:game_id>/control', views.game_master.api_control,
          name='api_control'),

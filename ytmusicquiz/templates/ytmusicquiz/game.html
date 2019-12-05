@@ -7,14 +7,10 @@
     <div class="game" game-id="{{ game.id }}">
         <h1>In game</h1>
 
-        <a href="{% url 'dashboard' game_id=game.id %}" target="_new">Open dashboard</a>
-
-
         <h2>
             {{question_progress}} / {{question_count}}
             <button id="playpause" class="btn btn-secondary float-right m-1">Play / pause</button>
             <button id="replay" class="btn btn-secondary float-right m-1">Replay</button>
-            <button id="connect" class="btn btn-secondary float-right m-1">Connect to dashboard</button>
         </h2>
 
         <div class="card">
@@ -33,7 +29,7 @@
             </div>
         </div>
 
-        <form method="POST">
+        <form method="POST" class="my-5">
             {% csrf_token %}
 
             {{ formset.management_form }}
@@ -46,30 +42,14 @@
                 {% endfor %}
             {% endfor %}
 
-            <button type="submit" class="btn btn-primary">Next</button>
+            <button type="submit" class="btn btn-primary my-5">Next</button>
         </form>
 
-    </div>
+        <div class="mt-5 bg-light">
+                <a class="btn btn-secondary m-1 text-white" href="{% url 'setup' game_id=game.id %}">Setup</a>
+                <a class="btn btn-danger m-1 text-white float-right" href="{% url 'gameover' game_id=game.id %}">End game</a>
+        </div>
 
-    <div class="modal fade" id="qrModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Read QR code</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                        <div id="loadingMessage">Unable to access video stream (please make sure you have a webcam enabled)</div>
-                        <canvas id="canvas" hidden style="max-width: 100%;"></canvas>
-                        <div id="output" hidden>
-                          <div id="outputMessage">No QR code detected.</div>
-                          <div hidden><b>Data:</b> <span id="outputData"></span></div>
-                        </div>
-                </div>
-            </div>
-            </div>
     </div>
 
 {% endblock %}
@@ -118,89 +98,6 @@
                     dataType: 'text',
                 });
             })
-
-            $("#connect").on("click", function() {
-                $('#qrModal').modal({
-                    backdrop: true,
-                });
-
-                var video = document.createElement("video");
-                var canvasElement = document.getElementById("canvas");
-                var canvas = canvasElement.getContext("2d");
-                var loadingMessage = document.getElementById("loadingMessage");
-                var outputContainer = document.getElementById("output");
-                var outputMessage = document.getElementById("outputMessage");
-                var outputData = document.getElementById("outputData");
-
-                function drawLine(begin, end, color) {
-                    canvas.beginPath();
-                    canvas.moveTo(begin.x, begin.y);
-                    canvas.lineTo(end.x, end.y);
-                    canvas.lineWidth = 4;
-                    canvas.strokeStyle = color;
-                    canvas.stroke();
-                }
-
-                navigator.mediaDevices.getUserMedia({
-                    video: {
-                        facingMode: "environment"
-                    }
-                }).then(function(stream) {
-                    video.srcObject = stream;
-                    video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-                    video.play();
-                    requestAnimationFrame(tick);
-                });
-
-                function tick() {
-                    loadingMessage.innerText = "Loading video..."
-                    if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                        loadingMessage.hidden = true;
-                        canvasElement.hidden = false;
-                        outputContainer.hidden = false;
-
-                        canvasElement.height = video.videoHeight;
-                        canvasElement.width = video.videoWidth;
-                        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-                        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-                        var code = jsQR(imageData.data, imageData.width, imageData.height);
-                        if (code) {
-                            drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-                            drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-                            drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-                            drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-                            outputData.innerText = code.data;
-                            outputMessage.hidden = true;
-                            outputData.parentElement.hidden = false;
-
-
-                            if (code.data.startsWith("specific."))
-                            {
-                                $('#qrModal').modal('hide');
-
-                                $.ajax({
-                                    url: control_url,
-                                    type: "POST",
-                                    data: JSON.stringify({
-                                        action: "connect",
-                                        dashboard_id: code.data,
-                                    }),
-                                    contentType: 'application/json; charset=utf-8',
-                                    dataType: 'text',
-                                });
-
-                                location.reload();
-                                return;
-                            }
-
-                        } else {
-                            outputMessage.hidden = false;
-                            outputData.parentElement.hidden = true;
-                        }
-                    }
-                    requestAnimationFrame(tick);
-                }
-            });
         })
     </script>
 {% endblock %}

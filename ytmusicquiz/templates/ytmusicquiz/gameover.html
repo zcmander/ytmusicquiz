@@ -5,8 +5,8 @@
       <h1>Game over!</h1>
 
       <p>
-        <a href="{% url 'newgame' %}" class="btn btn-primary">
-          Start a new game
+        <a href="{% url 'finish' game_id=game.id %}" class="btn btn-primary">
+          Finish
         </a>
       </p>
 
