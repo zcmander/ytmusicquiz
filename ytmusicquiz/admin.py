@@ -11,6 +11,7 @@ def track_display_name(obj):
 @admin.register(QuestionTrack)
 class QuestionTrackAdmin(admin.ModelAdmin):
     list_display = ('display_name', "length", "state")
+    list_filter = ('state',)
 
     def length(self, obj):
         if obj.start and obj.end:
