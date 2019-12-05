@@ -4,13 +4,16 @@
 
 {% block content %}
 
-      <h1>In game</h1>
+    <div class="game" game-id="{{ game.id }}">
+        <h1>In game</h1>
 
         <a href="{% url 'dashboard' game_id=game.id %}" target="_new">Open dashboard</a>
 
-        <div id="accordion">
 
-        <h2>{{question_progress}} / {{question_count}}</h2>
+        <h2>
+            {{question_progress}} / {{question_count}}
+            <button id="playpause" class="btn btn-secondary float-right">Play / pause</button>
+        </h2>
 
         <div class="card">
             <div class="card-header">
@@ -34,6 +37,21 @@
 
             <button type="submit" class="btn btn-primary">Next</button>
         </form>
+
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(function() {
+            const game_id = $(".game").attr("game-id");
+
+            $("#playpause").on("click", function() {
+                $.ajax("api/game/" + game_id + "/control", {
+                    action: "playpause",
+                });
+            })
+        })
+    </script>
 {% endblock %}

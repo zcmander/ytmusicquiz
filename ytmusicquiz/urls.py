@@ -33,6 +33,9 @@ urlpatterns = [
     path('game/<int:game_id>/finnish', views.game_master.gameover,
          name='gameover'),
 
+    path('api/game/<int:game_id>/control', views.game_master.api_control,
+         name='api_control'),
+
 
     # Management
     path('list_unprocessed', views.management.list_unprocessed,
