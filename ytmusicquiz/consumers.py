@@ -167,3 +167,8 @@ class GameConsumer(AsyncWebsocketConsumer):
         await self.send(json.dumps({
             "type": "control.playpause",
         }))
+
+    async def control_replay(self, event):
+        await self.send(json.dumps({
+            "type": "control.replay",
+        }))

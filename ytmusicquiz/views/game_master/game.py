@@ -11,17 +11,16 @@ from ytmusicquiz.models import Game, Question, Player
 
 class AnswerForm(forms.Form):
     player_id = forms.CharField(required=True, widget=forms.HiddenInput())
-    player_name = forms.CharField(required=False)
     points = forms.ChoiceField(
         choices=(
-            (0, '-2'),
-            (1, '-1'),
-            (2, '0'),
-            (3, '+1'),
-            (4, '+2'),
+            (0, '0'),
+            (1, '+1'),
+            (2, '+2'),
+            (3, '+3'),
+            (4, '+4'),
         ),
-        initial=2,
-        label="Points",
+        initial=0,
+        label="",
         required=True,
         widget=RadioSelectButtonGroup
     )
@@ -81,7 +80,7 @@ def game(request, game_id):
                     id=player_form["player_id"]
                 ).first()
 
-                points = int(player_form["points"]) - 2
+                points = int(player_form["points"])
 
                 game.answer_set.create(
                     player=player,
@@ -135,5 +134,6 @@ def game(request, game_id):
         "question": question,
         "question_progress": question.index + 1,
         "question_count": question_count,
-        "form": form,
+        "formset": form,
+        "player_names": [player.display_name for player in players]
     })

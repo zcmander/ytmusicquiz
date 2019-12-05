@@ -12,7 +12,8 @@
 
         <h2>
             {{question_progress}} / {{question_count}}
-            <button id="playpause" class="btn btn-secondary float-right">Play / pause</button>
+            <button id="playpause" class="btn btn-secondary float-right m-1">Play / pause</button>
+            <button id="replay" class="btn btn-secondary float-right m-1">Replay</button>
         </h2>
 
         <div class="card">
@@ -33,7 +34,16 @@
 
         <form method="POST">
             {% csrf_token %}
-            {% bootstrap_formset form layout='horizontal' %}
+
+            {{ formset.management_form }}
+            {% for form in formset %}
+                {% for player_name in player_names %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                        <h5>{{ player_name }}</h5>
+                        {% bootstrap_form form layout='inline' %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
 
             <button type="submit" class="btn btn-primary">Next</button>
         </form>
@@ -44,12 +54,46 @@
 
 {% block scripts %}
     <script>
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
         $(function() {
-            const game_id = $(".game").attr("game-id");
+            var game_id = $(".game").attr("game-id");
+
+            var control_url = "api/game/" + game_id + "/control";
 
             $("#playpause").on("click", function() {
-                $.ajax("api/game/" + game_id + "/control", {
-                    action: "playpause",
+                $.ajax({
+                    url: control_url,
+                    type: "POST",
+                    data: JSON.stringify({
+                        action: "playpause",
+                    }),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'text',
+                });
+            })
+
+            $("#replay").on("click", function() {
+                $.ajax({
+                    url: control_url,
+                    type: "POST",
+                    data: JSON.stringify({
+                        action: "replay",
+                    }),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'text',
                 });
             })
         })
