@@ -6,7 +6,9 @@ def generate_questions(game):
     Generates questions for the game.
     """
     count = 10
-    tracks = QuestionTrack.objects.order_by("?")[:count]
+    tracks = QuestionTrack.objects \
+        .filter(state="DONE") \
+        .order_by("?")[:count]
 
     for index, track in enumerate(tracks):
         game.question_set.create(

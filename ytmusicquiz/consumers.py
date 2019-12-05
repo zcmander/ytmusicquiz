@@ -161,7 +161,4 @@ class GameConsumer(AsyncWebsocketConsumer):
             "cumhist": cumhist,
         }
 
-        import pprint
-        pprint.pprint(return_event)
-
         await self.send(json.dumps(return_event))
