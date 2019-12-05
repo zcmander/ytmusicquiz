@@ -72,8 +72,6 @@ def game(request, game_id):
         form = AnswerFormset(request.POST)
 
         if form.is_valid():
-            correct_answered_players = []
-
             for player_form in form.cleaned_data:
                 player = Player.objects.filter(
                     game=game,
@@ -87,24 +85,6 @@ def game(request, game_id):
                     question=question,
                     points=points
                 )
-
-                if points > 0:
-                    correct_answered_players.append({
-                        "player": {
-                            "id": player.id,
-                            "display_name": player.display_name,
-                        },
-                        "points": points
-                    })
-
-            async_to_sync(channel_layer.group_send)(
-                'game-{}'.format(game.id), {
-                    "type": 'game.answer',
-                    "game_id": game.id,
-                    "question_id": question.id,
-                    "correct_answered_players": correct_answered_players
-                }
-            )
 
             question.answered = True
 
