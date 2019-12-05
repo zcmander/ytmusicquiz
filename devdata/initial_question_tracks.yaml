@@ -1,4 +1,84 @@
 -   model: ytmusicquiz.questiontrack
+    pk: 11j1WlAL0_Q
+    fields:
+        state: DONE
+        start: 25
+        end: 80
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.770077+00:00
+        updated_at: 2019-12-05 06:22:22.729251+00:00
+        artist: SINI YASEMIN
+        track: Pukukoodi
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: 1NXeE5VSlxY
+    fields:
+        state: DONE
+        start: 115
+        end: 189
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.911076+00:00
+        updated_at: 2019-12-05 06:24:27.056095+00:00
+        artist: Skandaali
+        track: Hukas
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: 2gJ-YH4Nizg
+    fields:
+        state: DONE
+        start: 68
+        end: 112
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.842076+00:00
+        updated_at: 2019-12-05 06:26:50.343025+00:00
+        artist: REINO NORDIN
+        track: ANTAUDUN
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: 5x38VGHfMSs
+    fields:
+        state: DONE
+        start: 77
+        end: 150
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.881077+00:00
+        updated_at: 2019-12-05 06:28:58.546427+00:00
+        artist: Gasellit
+        track: Vainoharhainen
+        feat: Kasmir
+-   model: ytmusicquiz.questiontrack
+    pk: 7Vd8Unjfup8
+    fields:
+        state: DONE
+        start: 111
+        end: 180
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.624075+00:00
+        updated_at: 2019-12-05 06:31:48.849280+00:00
+        artist: Portion Boys
+        track: Luolamies
+        feat: null
+-   model: ytmusicquiz.questiontrack
     pk: 9djsB5FykQo
     fields:
         state: ''
@@ -31,6 +111,70 @@
         track: Aurinkokuningatar
         feat: null
 -   model: ytmusicquiz.questiontrack
+    pk: Bzb4oNEIAig
+    fields:
+        state: DONE
+        start: 53
+        end: 94
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.077551+00:00
+        updated_at: 2019-12-04 10:23:41.278614+00:00
+        artist: Chorale
+        track: Voit mua koskettaa
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: CsLL0Ii7ALM
+    fields:
+        state: DONE
+        start: 58
+        end: 96
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.762077+00:00
+        updated_at: 2019-12-05 06:33:51.585108+00:00
+        artist: Antti Tuisku
+        track: Hanuri
+        feat: Boyat
+-   model: ytmusicquiz.questiontrack
+    pk: DwtQ9SBg6vQ
+    fields:
+        state: DONE
+        start: 119
+        end: 170
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.874076+00:00
+        updated_at: 2019-12-05 06:35:20.103780+00:00
+        artist: Juulia
+        track: Vakavaa
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: FnrI2QmFlmU
+    fields:
+        state: DONE
+        start: 69
+        end: 102
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.848077+00:00
+        updated_at: 2019-12-05 06:36:24.766833+00:00
+        artist: Mikael Gabriel
+        track: Riippumatto
+        feat: null
+-   model: ytmusicquiz.questiontrack
     pk: He5rbLPB8ng
     fields:
         state: ''
@@ -47,6 +191,54 @@
         track: "Min\xE4"
         feat: Mariska
 -   model: ytmusicquiz.questiontrack
+    pk: MWKnIIUOs4s
+    fields:
+        state: DONE
+        start: 105
+        end: 153
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.896075+00:00
+        updated_at: 2019-12-05 06:38:33.261918+00:00
+        artist: Atomirotta
+        track: "\xC4l\xE4 huoli tytt\xF6"
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: MZ8cAFHKMBg
+    fields:
+        state: DONE
+        start: 10
+        end: 55
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.638076+00:00
+        updated_at: 2019-12-05 06:40:01.396104+00:00
+        artist: Musta Barbaari
+        track: Eilen me naura
+        feat: "Seksik\xE4s Suklaa"
+-   model: ytmusicquiz.questiontrack
+    pk: N44eiXK4hVg
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.666076+00:00
+        updated_at: 2019-12-05 06:40:11.893974+00:00
+        artist: ''
+        track: Trilluminati - Sinuhe
+        feat: null
+-   model: ytmusicquiz.questiontrack
     pk: ODLBY-Y89PY
     fields:
         state: ''
@@ -61,6 +253,86 @@
         updated_at: 2019-11-23 13:56:35.651675+00:00
         artist: Kliff
         track: Maija
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: SCEw4uH2a8I
+    fields:
+        state: DONE
+        start: 91
+        end: 132
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.755077+00:00
+        updated_at: 2019-12-05 06:42:12.014003+00:00
+        artist: Spekti
+        track: Juna
+        feat: Tasis
+-   model: ytmusicquiz.questiontrack
+    pk: SME51y0l7Rc
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.889077+00:00
+        updated_at: 2019-12-05 06:42:42.023099+00:00
+        artist: ''
+        track: "Tuomas Kauhanen - Menee Aamuun ft. Nikke Ankara, M\xE4kki, Aste"
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: T9uBMNEhq4Y
+    fields:
+        state: DONE
+        start: 48
+        end: 120
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.932076+00:00
+        updated_at: 2019-12-05 06:44:29.098661+00:00
+        artist: Mansesteri
+        track: Kultaa
+        feat: Sare
+-   model: ytmusicquiz.questiontrack
+    pk: T__NfJJG99g
+    fields:
+        state: DONE
+        start: 58
+        end: 116
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.743077+00:00
+        updated_at: 2019-12-05 06:45:52.044606+00:00
+        artist: Portion Boys
+        track: Pokemon (J&E Remix)
+        feat: Sharon, Biggy Pop
+-   model: ytmusicquiz.questiontrack
+    pk: TtbODtWsFwg
+    fields:
+        state: DONE
+        start: 75
+        end: 126
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.836076+00:00
+        updated_at: 2019-12-05 06:47:09.649927+00:00
+        artist: Aurora
+        track: "Kaikki mit\xE4 n\xE4\xE4t"
         feat: null
 -   model: ytmusicquiz.questiontrack
     pk: X85WvTqHJ4k
@@ -95,6 +367,22 @@
         track: Puhuva kone
         feat: null
 -   model: ytmusicquiz.questiontrack
+    pk: _EQNvCi4jRI
+    fields:
+        state: DONE
+        start: 115
+        end: 155
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.061546+00:00
+        updated_at: 2019-12-04 10:25:58.132924+00:00
+        artist: Aikakone
+        track: Odota
+        feat: null
+-   model: ytmusicquiz.questiontrack
     pk: bQFETAXKrvU
     fields:
         state: ''
@@ -127,6 +415,118 @@
         track: "Kun s\xE4 astut huoneeseen (Richter)"
         feat: Juju
 -   model: ytmusicquiz.questiontrack
+    pk: cN-biBCLahg
+    fields:
+        state: DONE
+        start: 116
+        end: 170
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.921089+00:00
+        updated_at: 2019-12-05 06:49:48.490695+00:00
+        artist: "P\xE4\xE4-\xC4ij\xE4t"
+        track: "Aurinkoyo\u0308"
+        feat: Lord Est
+-   model: ytmusicquiz.questiontrack
+    pk: cTCKGge0NxY
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.068546+00:00
+        updated_at: 2019-12-04 16:55:25.710425+00:00
+        artist: ''
+        track: chorale - univiidakko
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: dwYmPJPf4y8
+    fields:
+        state: DONE
+        start: 92
+        end: 138
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.736076+00:00
+        updated_at: 2019-12-05 06:53:23.715497+00:00
+        artist: JVG
+        track: "F\xE4ij\xF6nii"
+        feat: MG
+-   model: ytmusicquiz.questiontrack
+    pk: eNeAtJ8J1qM
+    fields:
+        state: DONE
+        start: 78
+        end: 104
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.085546+00:00
+        updated_at: 2019-12-04 16:51:54.083290+00:00
+        artist: Chorale
+        track: Kuule mua
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: eZW57S5Cz8Q
+    fields:
+        state: DONE
+        start: 68
+        end: 108
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.052546+00:00
+        updated_at: 2019-12-05 06:56:26.500456+00:00
+        artist: 2.  Maanantai
+        track: Mixet tahdo olla mun kaa
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: fMvv_NDUl3w
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:23.698541+00:00
+        updated_at: 2019-12-05 06:56:47.838963+00:00
+        artist: ''
+        track: Modern Talking - Brother Louie (Mix '98)
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: hwtoiWx6Bz0
+    fields:
+        state: DONE
+        start: 83
+        end: 113
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.822077+00:00
+        updated_at: 2019-12-05 06:58:16.162760+00:00
+        artist: SINI YASEMIN
+        track: Mun Kaa
+        feat: null
+-   model: ytmusicquiz.questiontrack
     pk: iCzz61uAPJ0
     fields:
         state: ''
@@ -141,6 +541,54 @@
         updated_at: 2019-11-23 13:49:41.292011+00:00
         artist: Valvomo
         track: "Mik\xE4 kes\xE4?"
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: itGHCPI7VpQ
+    fields:
+        state: DONE
+        start: 98
+        end: 186
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.940076+00:00
+        updated_at: 2019-12-05 07:00:13.285326+00:00
+        artist: Saurus
+        track: Meil on hauskaa
+        feat: Heikki Kuula
+-   model: ytmusicquiz.questiontrack
+    pk: j0h3avaLhzE
+    fields:
+        state: DONE
+        start: 90
+        end: 114
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.903075+00:00
+        updated_at: 2019-12-05 07:01:15.362074+00:00
+        artist: Herrat
+        track: Kumiankka
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: jlpFemkTE6k
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.037547+00:00
+        updated_at: 2019-12-05 07:01:44.835083+00:00
+        artist: ''
+        track: "Mira - El\xE4t formulaa"
         feat: null
 -   model: ytmusicquiz.questiontrack
     pk: kj1Xcoxj1m8
@@ -159,6 +607,22 @@
         track: Kultaa
         feat: Stig & Majuri
 -   model: ytmusicquiz.questiontrack
+    pk: oUzyD3chI38
+    fields:
+        state: DONE
+        start: 72
+        end: 116
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.828077+00:00
+        updated_at: 2019-12-05 07:03:43.080858+00:00
+        artist: Vilma Alina, Nelli Matula, Ida Paul & Sini Yasemin
+        track: Tyynysotaa
+        feat: null
+-   model: ytmusicquiz.questiontrack
     pk: q07yoa6LAxc
     fields:
         state: ''
@@ -173,6 +637,86 @@
         updated_at: 2019-11-23 14:17:42.714643+00:00
         artist: "Hesa\xC4ij\xE4"
         track: Karhun kaato
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: r2ZiRIukKD4
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.947077+00:00
+        updated_at: 2019-12-05 07:03:57.814259+00:00
+        artist: ''
+        track: Aivovuoto - Tottakai ft. Mariska (audio)
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: rPF4NNlGtHo
+    fields:
+        state: REJECTED
+        start: 0
+        end: null
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-04 10:12:59.045559+00:00
+        updated_at: 2019-12-05 07:04:18.134003+00:00
+        artist: ''
+        track: Ice MC - Think about the way
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: tKzN39QZuQc
+    fields:
+        state: DONE
+        start: 108
+        end: 171
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.699077+00:00
+        updated_at: 2019-12-05 07:06:05.827851+00:00
+        artist: Anna Puu
+        track: "Kaunis p\xE4iv\xE4"
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: uoNQe2HVcoI
+    fields:
+        state: DONE
+        start: 74
+        end: 120
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-05 06:19:11.955076+00:00
+        updated_at: 2019-12-05 07:07:53.862706+00:00
+        artist: Aurora
+        track: "T\xE4ydelliset"
+        feat: null
+-   model: ytmusicquiz.questiontrack
+    pk: visCyJRU3rk
+    fields:
+        state: ''
+        start: 151
+        end: 219
+        released: null
+        cover: false
+        is_finnish: null
+        rule10s: false
+        disliked: false
+        created_at: 2019-12-03 13:38:06.714164+00:00
+        updated_at: 2019-12-03 13:38:06.714164+00:00
+        artist: Ezkimo
+        track: Ilman sua
         feat: null
 -   model: ytmusicquiz.questiontrack
     pk: w8_NN5Y8fpc
@@ -193,16 +737,16 @@
 -   model: ytmusicquiz.questiontrack
     pk: yQkdMh4GW4M
     fields:
-        state: ''
+        state: DONE
         start: 103
-        end: null
+        end: 117
         released: null
         cover: false
         is_finnish: null
         rule10s: false
         disliked: false
         created_at: 2019-11-22 17:50:26.992156+00:00
-        updated_at: 2019-11-22 17:50:26.992156+00:00
+        updated_at: 2019-12-04 14:15:50.745117+00:00
         artist: costee
         track: Satuta mua kunnolla
         feat: null
