@@ -4,6 +4,12 @@
 
 {% block content %}
   <div class="container">
+    <p>
+      <a href="{% url 'list_unprocessed' %}" class="btn btn-link">
+        Back to unprocessed list
+      </a>
+    </p>
+
     <h1>{{ title }}</h1>
     <form method="POST" class="my-5">
         {% csrf_token %}
@@ -11,12 +17,14 @@
 
         <div class="row my-5">
           <div class="col-6">
-              <button type="submit" name="reject" class="btn btn-danger" disabled>Reject</button>
+              {% if can_reject %}
+              <button type="submit" name="reject" class="btn btn-danger">Reject</button>
+              {% endif %}
           </div>
           <div class="col-6 text-right">
 
             <button type="button" class="btn btn-secondary" id="preview">Preview</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{ submit_button_text }}</button>
           </div>
         </div>
     </form>

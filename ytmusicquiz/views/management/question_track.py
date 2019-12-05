@@ -30,7 +30,9 @@ def add(request):
 
     return render(request, "ytmusicquiz/form.html", {
         "title": "Add new entry",
-        "form": form
+        "form": form,
+        "can_reject": False,
+        "submit_button_text": "Add"
     })
 
 
@@ -48,6 +50,11 @@ def process_draft(request, video_id=None):
     form = Form(instance=qt)
 
     if request.method == 'POST':
+        if 'reject' in request.POST:
+            qt.state = "REJECTED"
+            qt.save()
+            return redirect('process_draft')
+
         form = Form(request.POST, instance=qt)
 
         if form.is_valid():
@@ -62,5 +69,7 @@ def process_draft(request, video_id=None):
 
     return render(request, "ytmusicquiz/form.html", {
         "title": title,
-        "form": form
+        "form": form,
+        "can_reject": True,
+        "submit_button_text": "Mark as Done"
     })
