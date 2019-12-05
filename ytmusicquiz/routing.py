@@ -8,7 +8,7 @@ application = ProtocolTypeRouter({
     'websocket': AuthMiddlewareStack(
         URLRouter(
             [
-                re_path(r'api/dashboard/(?P<game_id>\d+)/$', GameConsumer),
+                re_path(r'api/dashboard/$', GameConsumer),
             ]
         )
     )

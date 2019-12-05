@@ -7,14 +7,14 @@ from ytmusicquiz.models import Game, Question
 
 class GameConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        self.game_id = self.scope['url_route']['kwargs']['game_id']
-        self.game_name = 'game-{}'.format(self.game_id)
-
-        await self.channel_layer.group_add(
-            self.game_name,
-            self.channel_name)
-
         await self.accept()
+
+        return_event = {
+            "type": "dashboard.id",
+            "dashboard_id": self.channel_name
+        }
+
+        await self.send(json.dumps(return_event))
 
     async def disconnect(self, close_code):
         await self.channel_layer.group_discard(
