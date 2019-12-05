@@ -81,7 +81,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: 9djsB5FykQo
     fields:
-        state: ''
+        state: DONE
         start: 38
         end: 76
         released: null
@@ -90,14 +90,14 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:01:41.206759+00:00
-        updated_at: 2019-11-23 14:01:41.206759+00:00
+        updated_at: 2019-12-05 07:18:13.786942+00:00
         artist: MKDMSK
         track: "Edelleen edell\xE4"
         feat: null
 -   model: ytmusicquiz.questiontrack
     pk: A1N3LazeQM0
     fields:
-        state: ''
+        state: DONE
         start: 5
         end: 26
         released: null
@@ -106,7 +106,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:22:04.814153+00:00
-        updated_at: 2019-11-23 14:22:04.814153+00:00
+        updated_at: 2019-12-05 07:18:07.363084+00:00
         artist: Valovuosi
         track: Aurinkokuningatar
         feat: null
@@ -177,7 +177,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: He5rbLPB8ng
     fields:
-        state: ''
+        state: DONE
         start: 15
         end: 40
         released: null
@@ -186,7 +186,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:08:22.737531+00:00
-        updated_at: 2019-11-23 14:08:22.737531+00:00
+        updated_at: 2019-12-05 07:18:01.116530+00:00
         artist: Kymppilinja
         track: "Min\xE4"
         feat: Mariska
@@ -241,7 +241,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: ODLBY-Y89PY
     fields:
-        state: ''
+        state: DONE
         start: 35
         end: 63
         released: null
@@ -250,7 +250,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 13:56:35.651675+00:00
-        updated_at: 2019-11-23 13:56:35.651675+00:00
+        updated_at: 2019-12-05 07:17:54.330982+00:00
         artist: Kliff
         track: Maija
         feat: null
@@ -337,7 +337,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: X85WvTqHJ4k
     fields:
-        state: ''
+        state: DONE
         start: 43
         end: 82
         released: null
@@ -346,14 +346,14 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 13:54:04.466852+00:00
-        updated_at: 2019-11-23 13:54:04.466852+00:00
+        updated_at: 2019-12-05 07:17:47.307954+00:00
         artist: Elokuu
         track: "T\xE4n\xE4\xE4n l\xE4htee"
         feat: null
 -   model: ytmusicquiz.questiontrack
     pk: Z5RwHrc7yGk
     fields:
-        state: ''
+        state: DONE
         start: 13
         end: 33
         released: null
@@ -362,7 +362,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:09:26.622471+00:00
-        updated_at: 2019-11-23 14:09:26.622471+00:00
+        updated_at: 2019-12-05 07:17:35.187948+00:00
         artist: Puhuva kone
         track: Puhuva kone
         feat: null
@@ -385,7 +385,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: bQFETAXKrvU
     fields:
-        state: ''
+        state: DONE
         start: 178
         end: 229
         released: null
@@ -394,14 +394,14 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:14:20.417291+00:00
-        updated_at: 2019-11-23 14:14:20.417291+00:00
+        updated_at: 2019-12-05 07:17:28.583697+00:00
         artist: Ulpu
         track: Musta
         feat: Pyhimys
 -   model: ytmusicquiz.questiontrack
     pk: bwxX0nulFeQ
     fields:
-        state: ''
+        state: DONE
         start: 76
         end: 103
         released: null
@@ -410,7 +410,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:20:43.535239+00:00
-        updated_at: 2019-11-23 14:20:43.535239+00:00
+        updated_at: 2019-12-05 07:17:22.110212+00:00
         artist: Lord est
         track: "Kun s\xE4 astut huoneeseen (Richter)"
         feat: Juju
@@ -529,7 +529,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: iCzz61uAPJ0
     fields:
-        state: ''
+        state: DONE
         start: 26
         end: 46
         released: null
@@ -538,7 +538,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 13:49:41.292011+00:00
-        updated_at: 2019-11-23 13:49:41.292011+00:00
+        updated_at: 2019-12-05 07:17:15.982498+00:00
         artist: Valvomo
         track: "Mik\xE4 kes\xE4?"
         feat: null
@@ -593,7 +593,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: kj1Xcoxj1m8
     fields:
-        state: ''
+        state: DONE
         start: 45
         end: 72
         released: null
@@ -602,7 +602,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 13:59:19.961781+00:00
-        updated_at: 2019-11-23 13:59:19.962798+00:00
+        updated_at: 2019-12-05 07:17:04.138794+00:00
         artist: Kristal
         track: Kultaa
         feat: Stig & Majuri
@@ -625,7 +625,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: q07yoa6LAxc
     fields:
-        state: ''
+        state: DONE
         start: 10
         end: 50
         released: null
@@ -634,7 +634,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:17:42.714643+00:00
-        updated_at: 2019-11-23 14:17:42.714643+00:00
+        updated_at: 2019-12-05 07:16:16.830746+00:00
         artist: "Hesa\xC4ij\xE4"
         track: Karhun kaato
         feat: null
@@ -705,7 +705,7 @@
 -   model: ytmusicquiz.questiontrack
     pk: visCyJRU3rk
     fields:
-        state: ''
+        state: DONE
         start: 151
         end: 219
         released: null
@@ -714,14 +714,14 @@
         rule10s: false
         disliked: false
         created_at: 2019-12-03 13:38:06.714164+00:00
-        updated_at: 2019-12-03 13:38:06.714164+00:00
+        updated_at: 2019-12-05 07:16:11.943576+00:00
         artist: Ezkimo
         track: Ilman sua
         feat: null
 -   model: ytmusicquiz.questiontrack
     pk: w8_NN5Y8fpc
     fields:
-        state: ''
+        state: DONE
         start: 82
         end: 123
         released: null
@@ -730,7 +730,7 @@
         rule10s: false
         disliked: false
         created_at: 2019-11-23 14:07:21.635688+00:00
-        updated_at: 2019-11-23 14:07:21.635688+00:00
+        updated_at: 2019-12-05 07:13:51.715055+00:00
         artist: Titta
         track: "Maailma loppuu t\xE4n\xE4\xE4n"
         feat: null
