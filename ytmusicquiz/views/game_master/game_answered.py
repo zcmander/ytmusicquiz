@@ -20,6 +20,8 @@ def game_answered(request, game_id):
         answered=True
     ).order_by("-index").first()
 
+    question_count = Question.objects.filter(game=game).count()
+
     correct_answered_players = []
 
     for answer in question.answer_set.all():
@@ -45,4 +47,6 @@ def game_answered(request, game_id):
 
     return render(request, "ytmusicquiz/game_answered.html", {
         "game": game,
+        "question_progress": question.index + 1,
+        "question_count": question_count,
     })

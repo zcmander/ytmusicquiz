@@ -1,0 +1,37 @@
+{% extends 'ytmusicquiz/base.html' %}
+
+{% block content %}
+    <h1 class="display-2 mt-5">
+        musavisakisa
+    </h1>
+    <div class="row mt-5">
+        <div class="col-6">
+            <h2>Game master</h2>
+
+            <p>
+                You can create a new game and be responsible of scoring answers.
+                Use your power wisely.
+            </p>
+
+            <p class="mt-5">
+                <a href="{% url 'newgame' %}" class="btn btn-primary">Start</a>
+            </p>
+        </div>
+        <div class="col-6">
+            <h2>Dashboard</h2>
+
+            <p>
+                Other players can follow the game from TV. Launch it here, and pair it with
+                the game created by game master.
+            </p>
+
+            <p>
+                <b>NOTE: Connecting dashboard is not optional.</b> It works as audio sink for the game.
+            </p>
+
+            <p class="mt-5">
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">Launch</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

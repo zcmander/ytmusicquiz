@@ -3,13 +3,25 @@
 {% block content %}
 
 <div class="game" game-id="{{ game.id }}">
-    <h1>Set up dashboard</h1>
-
-    <button id="connect" class="btn btn-secondary m-1">Connect to dashboard</button>
+    <h1>Create a new game <small>2 / 2</small></h1>
 
     <p>
-        <a class="btn btn-primary" href="{% url 'game' game_id=game.id %}">Continue</a>
+        Other players can follow the game from TV. Pair the dashboard by clicking the <b>Start pairing</b> button.
     </p>
+
+    <div id="unpaired">
+        <button id="connect" class="btn btn-secondary my-1">Start pairing</button>
+    </div>
+
+    <div id="paired" style="display: none">
+        <div class="alert alert-success">
+            <b>Pairing completed!</b>
+        </div>
+
+        <a class="btn btn-primary" href="{% url 'game' game_id=game.id %}">
+            Start the game
+        </a>
+    </div>
 
     <div class="modal fade" id="qrModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -128,7 +140,8 @@
                                     dataType: 'text',
                                 });
 
-                                location.reload();
+                                $("#paired").show();
+                                $("#unpaired").hide();
                                 return;
                             }
 

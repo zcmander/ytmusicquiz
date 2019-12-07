@@ -2,10 +2,23 @@
 
 {% block content %}
 
-<h1>Great!<br/><small>Are you ready for the next one?</small></h1>
+<h2>
+    Question
+    <small>{{question_progress}} / {{question_count}}</small>
+</h2>
 
-<p>
-    <a class="btn btn-primary btn-lg" href="{% url 'game' game_id=game.id %}">Next</a>
+<h4>
+    Right answer
+</h4>
+
+<p class="my-5">
+    Are you ready for the next song?
+</p>
+
+<p class="my-5">
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'game' game_id=game.id %}">
+        Next song
+    </a>
 </p>
 
 {% endblock %}

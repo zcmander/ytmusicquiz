@@ -5,19 +5,30 @@
 {% block content %}
 
     <div class="game" game-id="{{ game.id }}">
-        <h1>In game</h1>
 
         <h2>
-            {{question_progress}} / {{question_count}}
-            <button id="playpause" class="btn btn-secondary float-right m-1">Play / pause</button>
-            <button id="replay" class="btn btn-secondary float-right m-1">Replay</button>
+            Question
+            <small>{{question_progress}} / {{question_count}}</small>
         </h2>
+
+        <div class="row my-3">
+            <div class="col-6">
+                <button id="playpause" class="btn btn-secondary">
+                    Play / Pause
+                </button>
+            </div>
+            <div class="col-6 text-right">
+                <button id="replay" class="btn btn-secondary">
+                    Replay
+                </button>
+            </div>
+        </div>
 
         <div class="card">
             <div class="card-header">
-                <button class="btn btn-link m-0" data-toggle="collapse" data-target="#answer">
-                    Answer
-                </button>
+                <a class="m-0" data-toggle="collapse" data-target="#answer">
+                    Right answer
+                </a>
             </div>
 
             <div id="answer" class="collapse">
@@ -29,25 +40,37 @@
             </div>
         </div>
 
-        <form method="POST" class="my-5">
+        <form method="POST" class="my-4">
             {% csrf_token %}
 
             {{ formset.management_form }}
+            <div class="row">
             {% for form in formset %}
                 {% for player_name in player_names %}
                     {% if forloop.counter == forloop.parentloop.counter %}
-                        <h5>{{ player_name }}</h5>
-                        {% bootstrap_form form layout='inline' %}
+                        <div class="col-4">
+                            <h5>{{ player_name }}</h5>
+                        </div>
+                        <div class="col-8">
+                            {% bootstrap_form form layout='inline' %}
+                        </div>
                     {% endif %}
                 {% endfor %}
             {% endfor %}
+            </div>
 
-            <button type="submit" class="btn btn-primary my-5">Next</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg my-5">
+                Submit answers
+            </button>
         </form>
 
         <div class="mt-5 bg-light">
-                <a class="btn btn-secondary m-1 text-white" href="{% url 'setup' game_id=game.id %}">Setup</a>
-                <a class="btn btn-danger m-1 text-white float-right" href="{% url 'gameover' game_id=game.id %}">End game</a>
+            <a class="btn btn-secondary m-1 text-white" href="{% url 'setup' game_id=game.id %}">
+                Setup
+            </a>
+            <a class="btn btn-danger m-1 text-white float-right" href="{% url 'gameover' game_id=game.id %}">
+                End game
+            </a>
         </div>
 
     </div>

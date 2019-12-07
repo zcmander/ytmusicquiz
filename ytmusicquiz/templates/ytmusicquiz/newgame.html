@@ -9,13 +9,13 @@
   <body>
     <div class="container">
 
-      <h1>Start a new game</h1>
+      <h1>Create a new game <small>1 / 2</small></h1>
 
       <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
 
-        <button type="submit" class="btn btn-primary">Begin</button>
+        <button type="submit" class="btn btn-primary">Next</button>
       </form>
 
     </div>
