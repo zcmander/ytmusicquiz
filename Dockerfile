@@ -1,5 +1,6 @@
 FROM python:3
 ENV PYTHONUNBUFFERED 1
+ENV REDIS_HOST localhost
 
 RUN mkdir /code
 WORKDIR /code

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm610)kl)^g8px47*vvr=01#+0kve^4ea(!4u*_e^vq3$5=sj_!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -77,12 +77,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [
-                (
-                    os.environ.get("REDIS_HOST", "127.0.0.1"),
-                    int(os.environ.get("REDIS_PORT", "6379"))
-                )
-            ],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }
@@ -137,4 +132,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/code/static/'
+STATIC_ROOT = '/static/'
