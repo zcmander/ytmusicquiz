@@ -1,10 +1,11 @@
 from django.shortcuts import render
-
+from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator
 
 from ytmusicquiz.models import QuestionTrack
 
 
+@staff_member_required
 def list_unprocessed(request):
     tracks = QuestionTrack.objects.filter(
         state="DRAFT"

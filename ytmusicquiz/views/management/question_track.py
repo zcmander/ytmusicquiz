@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.admin.views.decorators import staff_member_required
 from django import forms
 
 from ytmusicquiz.models import QuestionTrack
@@ -10,14 +11,9 @@ class Form(forms.ModelForm):
         fields = ('videoId', 'start', 'end', 'artist', 'track', 'feat')
 
 
+@staff_member_required
 def add(request):
-    form = Form(initial={
-        # "videoId": "yQkdMh4GW4M",
-        # "start": 103,
-        # "end": 103 + 15,
-        # "artist": "costee",
-        # "track": "Satuta mua kunnolla"
-    })
+    form = Form()
 
     if request.method == 'POST':
         form = Form(request.POST)
@@ -36,6 +32,7 @@ def add(request):
     })
 
 
+@staff_member_required
 def process_draft(request, video_id=None):
     q = QuestionTrack.objects.filter(state="DRAFT")
 

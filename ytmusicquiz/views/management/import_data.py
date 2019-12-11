@@ -1,17 +1,14 @@
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from django.shortcuts import render, redirect
+from django.contrib.admin.views.decorators import staff_member_required
 from django import forms
-
-import youtube_dl
-
-from ytmusicquiz.models import QuestionTrack
 
 
 class Form(forms.Form):
     url = forms.CharField(max_length=500)
 
-
+@staff_member_required
 def import_playlist(request):
 
     form = Form()
