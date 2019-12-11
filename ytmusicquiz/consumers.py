@@ -1,8 +1,10 @@
 import json
 
+import youtube_dl
+from channels.consumer import SyncConsumer
 from channels.generic.websocket import AsyncWebsocketConsumer
 
-from ytmusicquiz.models import Game, Question
+from ytmusicquiz.models import Game, Question, QuestionTrack
 
 
 class GameConsumer(AsyncWebsocketConsumer):
@@ -187,3 +189,35 @@ class GameConsumer(AsyncWebsocketConsumer):
         await self.send(json.dumps({
             "type": "control.connect",
         }))
+
+
+class BackgroundConsumer(SyncConsumer):
+    def import_playlist(self, message):
+
+        ydl_opts = {
+            "dump_single_json": True,
+            "ignoreerrors": True
+        }
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            result = ydl.extract_info(
+                message["url"],
+                download=False)
+
+        for entry in result["entries"]:
+            if not entry:
+                continue
+
+            existing_qt = QuestionTrack.objects \
+                .filter(videoId=entry["id"]) \
+                .first()
+
+            if (existing_qt):
+                continue
+
+            question_track = QuestionTrack(
+                videoId=entry["id"],
+                track=entry["title"],
+                state="DRAFT",
+                start=0,
+            )
+            question_track.save()

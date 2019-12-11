@@ -1,3 +1,5 @@
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 from django.shortcuts import render, redirect
 from django import forms
 
@@ -19,33 +21,15 @@ def import_playlist(request):
 
         if form.is_valid():
 
-            ydl_opts = {
-                "dump_single_json": True,
-                "ignoreerrors": True
-            }
-            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                result = ydl.extract_info(
-                    form.cleaned_data["url"],
-                    download=False)
+            channel_layer = get_channel_layer()
 
-            for entry in result["entries"]:
-                if not entry:
-                    continue
-
-                existing_qt = QuestionTrack.objects \
-                    .filter(videoId=entry["id"]) \
-                    .first()
-
-                if (existing_qt):
-                    continue
-
-                question_track = QuestionTrack(
-                    videoId=entry["id"],
-                    track=entry["title"],
-                    state="DRAFT",
-                    start=0,
-                )
-                question_track.save()
+            async_to_sync(channel_layer.send)(
+                'background-tasks',
+                {
+                    "type": "import.playlist",
+                    "url": form.cleaned_data["url"]
+                }
+            )
 
             return redirect('process_draft')
 
