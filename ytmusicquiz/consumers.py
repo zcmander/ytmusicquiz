@@ -2,31 +2,31 @@ import json
 
 import youtube_dl
 from channels.consumer import SyncConsumer
-from channels.generic.websocket import AsyncWebsocketConsumer
+from channels.generic.websocket import WebsocketConsumer
 
 from ytmusicquiz.models import Game, Question, QuestionTrack
 
 
-class GameConsumer(AsyncWebsocketConsumer):
-    async def connect(self):
-        await self.accept()
+class GameConsumer(WebsocketConsumer):
+    def connect(self):
+        self.accept()
 
         return_event = {
             "type": "dashboard.id",
             "dashboard_id": self.channel_name
         }
 
-        await self.send(json.dumps(return_event))
+        self.send(json.dumps(return_event))
 
         self.game_name = None
 
-    async def disconnect(self, close_code):
+    def disconnect(self, close_code):
         if self.game_name:
-            await self.channel_layer.group_discard(
+            self.channel_layer.group_discard(
                 self.game_name,
                 self.channel_name)
 
-    async def receive(self, text_data):
+    def receive(self, text_data):
         print("REVEICE", text_data)
 
     def _get_statistics(self, game):
@@ -89,7 +89,7 @@ class GameConsumer(AsyncWebsocketConsumer):
                 })
         return history
 
-    async def game_status(self, event):
+    def game_status(self, event):
 
         game = Game.objects.get(pk=event["game_id"])
 
@@ -115,15 +115,15 @@ class GameConsumer(AsyncWebsocketConsumer):
             }
         }
 
-        await self.send(json.dumps(return_event))
+        self.send(json.dumps(return_event))
 
-    async def game_answer(self, event):
+    def game_answer(self, event):
         question = Question.objects.filter(
             game_id=event["game_id"],
             id=event["question_id"]
         ).first()
 
-        await self.send(json.dumps({
+        self.send(json.dumps({
             "type": "game.answer",
             "answer": {
                 "artist": question.track.artist,
@@ -133,7 +133,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             "correct_answered_players": event["correct_answered_players"]
         }))
 
-    async def game_over(self, event):
+    def game_over(self, event):
         game = Game.objects.get(pk=event["game_id"])
 
         question_history = Question.objects.filter(
@@ -166,27 +166,27 @@ class GameConsumer(AsyncWebsocketConsumer):
             "cumhist": cumhist,
         }
 
-        await self.send(json.dumps(return_event))
+        self.send(json.dumps(return_event))
 
-    async def game_finish(self, event):
+    def game_finish(self, event):
         self.game_name = "game-{}".format(event["game_id"])
-        await self.send(json.dumps({
+        self.send(json.dumps({
             "type": "game.finish",
         }))
 
-    async def control_playpause(self, event):
-        await self.send(json.dumps({
+    def control_playpause(self, event):
+        self.send(json.dumps({
             "type": "control.playpause",
         }))
 
-    async def control_replay(self, event):
-        await self.send(json.dumps({
+    def control_replay(self, event):
+        self.send(json.dumps({
             "type": "control.replay",
         }))
 
-    async def control_connect(self, event):
+    def control_connect(self, event):
         self.game_name = "game-{}".format(event["game_id"])
-        await self.send(json.dumps({
+        self.send(json.dumps({
             "type": "control.connect",
         }))
 
