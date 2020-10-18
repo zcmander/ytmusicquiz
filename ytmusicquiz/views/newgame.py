@@ -13,6 +13,9 @@ class Form(forms.Form):
 
 
 def newgame(request):
+    """
+    Creates a new game using given player names.
+    """
     form = Form()
 
     if request.method == 'POST':
