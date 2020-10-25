@@ -7,9 +7,11 @@ def track_display_name(obj):
         return "%s - %s (%s)" % (obj.artist, obj.track, obj.feat)
     return "%s - %s" % (obj.artist, obj.track)
 
+
 @admin.register(QuestionTrack)
 class QuestionTrackAdmin(admin.ModelAdmin):
-    list_display = ('display_name', "length")
+    list_display = ('display_name', "length", "state")
+    list_filter = ('state',)
 
     def length(self, obj):
         if obj.start and obj.end:

@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
             name='QuestionTrack',
             fields=[
                 ('videoId', models.CharField(max_length=100, primary_key=True, serialize=False, verbose_name='Youtube Video ID')),
-                ('state', models.CharField(choices=[('DRAFT', 'DRAFT'), ('DONE', 'DONE')], max_length=10)),
+                ('state', models.CharField(choices=[('DRAFT', 'DRAFT'), ('DONE', 'DONE'), ("REJECTED", "REJECTED")], max_length=10)),
                 ('start', models.IntegerField()),
                 ('end', models.IntegerField(blank=True, null=True)),
                 ('released', models.IntegerField(blank=True, null=True)),

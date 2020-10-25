@@ -1,0 +1,14 @@
+{% extends 'ytmusicquiz/base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+  <div class="container">
+    <h1>Import playlist</h1>
+    <form method="POST" class="m-5">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}

@@ -4,6 +4,7 @@ from django.db import models
 STATES = (
     ("DRAFT", "DRAFT"),
     ("DONE", "DONE"),
+    ("REJECTED", "REJECTED"),
 )
 
 
