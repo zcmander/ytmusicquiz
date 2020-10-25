@@ -27,4 +27,4 @@ Currently, there is only one action supported: Importing a playlist from YouTube
 [repo_ytmusicquiz]: https://github.com/zcmander/ytmusicquiz/
 [repo_ytmusicquiz_dashboard]: https://github.com/zcmander/ytmusicquiz-dashboard/
 [repo_ytmusicquiz_deploy]: https://github.com/zcmander/ytmusicquiz-deploy/
-[repo_ytmusicquiz_docs]: https://github.com/zcmander/ytmusicquiz-deploy/
+[repo_ytmusicquiz_docs]: https://github.com/zcmander/ytmusicquiz-docs/
