@@ -15,6 +15,9 @@ This repository contains the backend application: Admin UI and Game Master UI. T
 
 The communication between [the Dashboard application][repo_ytmusicquiz_dashboard] and the backend application uses WebSocket protocol. The application uses [Django Channels][django_channels]-framework to provide an easy abstraction layer and [Redis][redis] as temporary backend storage for this communication.
 
+![Architecture](docs/architecture.png)
+NOTE: Dashboard (or related static files) are not part of this repository, but illustrated here, because it's the user for WebScoket-connection.
+
 The application also has support for running asynchronous background tasks for actions that takes a long time to complete. These use the same [Django Channels][django_channels]-framework to run these actions.
 
 Currently, there is only one action supported: Importing a playlist from YouTube.
