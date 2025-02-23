@@ -13,7 +13,7 @@ See related projects:
 
 This repository contains the backend application: Admin UI and Game Master UI. The application is written in [Python][python] using [Django-framework][django].
 
-The communication between [the Dashboard application][repo_ytmusicquiz_dashboard] and the backend application uses WebSocket protocol. The application uses [Django Channels][django_channels]-framework to provide an easy abstraction layer and [Redis][redis] as temporary backend storage for this communication.
+The communication between [the Dashboard application][repo_ytmusicquiz_dashboard] and the backend application uses WebSocket protocol. The application uses [Django Channels][django_channels]-framework to provide an easy abstraction layer using [Redis][redis] as a temporary backend storage and communication channel.
 
 ![Architecture](docs/architecture.png)
 
